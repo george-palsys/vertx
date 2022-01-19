@@ -1,0 +1,84 @@
+{
+  "apiVersion" : "route.openshift.io/v1",
+  "kind" : "Route",
+  "metadata" : {
+    "creationTimestamp" : "2022-01-19T08:40:14Z",
+    "labels" : {
+      "app" : "my-app",
+      "group" : "com.example",
+      "provider" : "jkube",
+      "version" : "1.0.0-SNAPSHOT"
+    },
+    "managedFields" : [ {
+      "apiVersion" : "route.openshift.io/v1",
+      "fieldsType" : "FieldsV1",
+      "fieldsV1" : {
+        "f:metadata" : {
+          "f:labels" : {
+            "." : { },
+            "f:app" : { },
+            "f:group" : { },
+            "f:provider" : { },
+            "f:version" : { }
+          }
+        },
+        "f:spec" : {
+          "f:port" : {
+            "." : { },
+            "f:targetPort" : { }
+          },
+          "f:to" : {
+            "f:kind" : { },
+            "f:name" : { },
+            "f:weight" : { }
+          },
+          "f:wildcardPolicy" : { }
+        }
+      },
+      "manager" : "okhttp",
+      "operation" : "Update",
+      "time" : "2022-01-19T08:40:14Z"
+    }, {
+      "apiVersion" : "route.openshift.io/v1",
+      "fieldsType" : "FieldsV1",
+      "fieldsV1" : {
+        "f:status" : {
+          "f:ingress" : { }
+        }
+      },
+      "manager" : "openshift-router",
+      "operation" : "Update",
+      "time" : "2022-01-19T08:40:14Z",
+      "subresource" : "status"
+    } ],
+    "name" : "my-app",
+    "namespace" : "georgechiu-dev",
+    "resourceVersion" : "715484397",
+    "uid" : "bf0d578d-77d4-4b7c-9344-55a5ecb166fa"
+  },
+  "spec" : {
+    "host" : "my-app-georgechiu-dev.apps.sandbox.x8i5.p1.openshiftapps.com",
+    "port" : {
+      "targetPort" : 8080
+    },
+    "to" : {
+      "kind" : "Service",
+      "name" : "my-app",
+      "weight" : 100
+    },
+    "wildcardPolicy" : "None"
+  },
+  "status" : {
+    "ingress" : [ {
+      "conditions" : [ {
+        "lastTransitionTime" : "2022-01-19T08:40:14Z",
+        "status" : "True",
+        "type" : "Admitted"
+      } ],
+      "host" : "my-app-georgechiu-dev.apps.sandbox.x8i5.p1.openshiftapps.com",
+      "routerCanonicalHostname" : "router-default.apps.sandbox.x8i5.p1.openshiftapps.com",
+      "routerName" : "default",
+      "wildcardPolicy" : "None"
+    } ]
+  }
+}
